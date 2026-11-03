@@ -1,0 +1,88 @@
+/* Estilos de la página Messi 10 */
+:root {
+  --celeste: #79d7ff;
+  --azul: #0878bd;
+  --oscuro: #071a30;
+  --fondo: #f1f7fc;
+  --texto: #172b40;
+  --tarjeta: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: Arial, Helvetica, sans-serif; background: var(--fondo); color: var(--texto); line-height: 1.7; transition: background .3s, color .3s; }
+.header { position: sticky; top: 0; z-index: 20; background: var(--oscuro); color: white; padding: 15px 5%; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+.logo { color: white; text-decoration: none; font-size: 25px; font-weight: 900; }
+.logo span { color: var(--celeste); }
+.nav-links { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; }
+.nav-links a { color: white; text-decoration: none; font-size: 14px; }
+.nav-links a:hover { color: var(--celeste); }
+.menu-toggle { display: none; }
+.theme-toggle { background: white; color: var(--oscuro); }
+.hero { min-height: 580px; display: flex; align-items: center; padding: 70px 8%; color: white; background: linear-gradient(90deg, #071a30f5, #071a3099, #071a3040), url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=85") center/cover; }
+.hero-content { max-width: 760px; }
+.eyebrow { color: var(--celeste); letter-spacing: 3px; font-weight: bold; }
+.hero h1 { font-size: clamp(48px, 9vw, 92px); line-height: 1.1; margin: 20px 0; }
+.hero h1 span { color: var(--celeste); }
+.hero-text { font-size: 18px; }
+.button { display: inline-block; margin-top: 25px; background: var(--celeste); color: var(--oscuro); text-decoration: none; padding: 11px 17px; border: 0; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.button-blue { background: var(--azul); color: white; }
+section { padding: 70px 7%; scroll-margin-top: 80px; }
+.container { max-width: 1200px; margin: auto; }
+.section-title { text-align: center; font-size: clamp(28px, 4vw, 42px); color: var(--azul); margin-bottom: 12px; }
+.section-intro { max-width: 780px; text-align: center; margin: 0 auto 35px; }
+.section-blue { background: linear-gradient(135deg, #d8f1ff, #f2faff); }
+.two-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 35px; }
+.main-photo { width: 100%; max-height: 480px; object-fit: cover; border-radius: 18px; }
+.two-columns h3 { color: var(--azul); margin: 17px 0 7px; }
+.two-columns p { margin-bottom: 12px; }
+.stats, .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; margin-top: 30px; }
+.stat, .card { background: var(--tarjeta); border-radius: 15px; padding: 23px; box-shadow: 0 5px 20px #071a3010; transition: transform .25s, box-shadow .25s; }
+.stat { text-align: center; }
+.stat strong { display: block; font-size: 29px; color: var(--azul); }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px #071a3020; }
+.card-icon { font-size: 37px; }
+.card h3 { color: var(--azul); margin: 10px 0; }
+.card p, .card li { font-size: 15px; }
+.card ul { padding-left: 20px; margin-top: 12px; }
+.tag { display: inline-block; color: #075785; background: #dff4ff; padding: 3px 10px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+.timeline { display: grid; max-width: 850px; gap: 18px; margin: 35px auto 0; }
+.timeline-item { background: var(--tarjeta); padding: 22px; border-left: 5px solid var(--azul); border-radius: 0 12px 12px 0; }
+.timeline-item h3 { color: var(--azul); margin: 7px 0; }
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 25px; }
+.filters button { color: var(--texto); background: var(--tarjeta); border: 1px solid var(--azul); padding: 11px 17px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.filters button.active { color: white; background: var(--azul); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.photo-card { background: var(--tarjeta); border-radius: 14px; padding: 10px; }
+.photo-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; cursor: pointer; }
+.photo-card p { font-weight: bold; padding: 8px 3px; }
+.quote { background: var(--oscuro); color: white; text-align: center; padding: 70px 8%; }
+.quote h2 { max-width: 850px; margin: 20px auto; font-size: clamp(25px, 5vw, 42px); }
+.quiz { max-width: 750px; margin: 30px auto 0; padding: 28px; background: var(--tarjeta); border-radius: 16px; }
+.question { margin-bottom: 25px; }
+.question h3 { margin-bottom: 12px; }
+.question label { display: block; padding: 10px; margin: 8px 0; border: 1px solid #bfd8e8; border-radius: 8px; cursor: pointer; }
+.question label:hover { background: #e1f5ff; }
+#quizResult { margin-top: 20px; font-weight: bold; font-size: 18px; }
+footer { background: #041323; color: white; text-align: center; padding: 35px 15px; }
+.lightbox { display: none; position: fixed; inset: 0; z-index: 100; background: #000e; align-items: center; justify-content: center; padding: 20px; }
+.lightbox img { max-width: 95%; max-height: 85vh; border-radius: 12px; }
+#closeLightbox { position: absolute; right: 20px; top: 10px; font-size: 40px; background: transparent; color: white; border: 0; cursor: pointer; }
+body.dark { --fondo: #0c1723; --texto: #edf5ff; --tarjeta: #19293a; --azul: #78ceff; }
+body.dark .section-blue { background: #14283a; }
+body.dark .tag { background: #263f52; color: #b9eaff; }
+body.dark .filters button { color: var(--texto); }
+body.dark .filters button.active { background: var(--azul); color: #06172a; }
+body.dark .question label { border-color: #42596b; }
+body.dark .question label:hover { background: #263d50; }
+@media (max-width: 850px) {
+  .two-columns { grid-template-columns: 1fr; }
+  .nav { justify-content: space-between; }
+  .menu-toggle { display: inline-block; background: transparent; color: white; font-size: 22px; }
+  .nav-links { display: none; width: 100%; flex-direction: column; padding: 12px 0; }
+  .nav-links.open { display: flex; }
+}
+@media (max-width: 480px) {
+  section { padding: 50px 5%; }
+  .quiz { padding: 18px; }
+}

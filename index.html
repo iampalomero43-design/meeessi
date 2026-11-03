@@ -1,0 +1,820 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messi 10 | La leyenda del fútbol</title>
+
+<style>
+:root {
+    --celeste: #79d7ff;
+    --azul: #0878bd;
+    --oscuro: #071a30;
+    --fondo: #f1f7fc;
+    --texto: #172b40;
+    --tarjeta: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.7;
+    transition: .3s;
+}
+
+header {
+    background: var(--oscuro);
+    color: white;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: var(--celeste);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--celeste);
+}
+
+button, .boton {
+    padding: 11px 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover, .boton:hover {
+    transform: translateY(-2px);
+}
+
+#modo {
+    background: white;
+    color: var(--oscuro);
+}
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    color: white;
+    background:
+        linear-gradient(90deg, #071a30f5, #071a3099, #071a3040),
+        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.hero-contenido {
+    max-width: 760px;
+}
+
+.etiqueta {
+    color: var(--celeste);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 9vw, 92px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--celeste);
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--celeste);
+    color: var(--oscuro);
+    text-decoration: none;
+}
+
+section {
+    padding: 70px 7%;
+    scroll-margin-top: 80px;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.titulo {
+    text-align: center;
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--azul);
+    margin-bottom: 12px;
+}
+
+.subtitulo {
+    max-width: 780px;
+    text-align: center;
+    margin: 0 auto 35px;
+}
+
+.fondo-azul {
+    background: linear-gradient(135deg, #d8f1ff, #f2faff);
+}
+
+.columnas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 35px;
+}
+
+.foto-principal {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.texto h3 {
+    color: var(--azul);
+    margin: 17px 0 7px;
+}
+
+.texto p {
+    margin-bottom: 12px;
+}
+
+.estadisticas, .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.estadistica, .tarjeta {
+    background: var(--tarjeta);
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0 5px 20px #071a3010;
+    transition: .25s;
+}
+
+.estadistica {
+    text-align: center;
+}
+
+.estadistica strong {
+    display: block;
+    font-size: 29px;
+    color: var(--azul);
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #071a3020;
+}
+
+.icono {
+    font-size: 37px;
+}
+
+.tarjeta h3 {
+    color: var(--azul);
+    margin: 10px 0;
+}
+
+.tarjeta p, .tarjeta li {
+    font-size: 15px;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+    margin-top: 12px;
+}
+
+.anio {
+    display: inline-block;
+    color: #075785;
+    background: #dff4ff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.timeline {
+    display: grid;
+    max-width: 850px;
+    gap: 18px;
+    margin: 35px auto 0;
+}
+
+.evento {
+    background: var(--tarjeta);
+    padding: 22px;
+    border-left: 5px solid var(--azul);
+    border-radius: 0 12px 12px 0;
+}
+
+.evento h3 {
+    color: var(--azul);
+    margin: 7px 0;
+}
+
+
+.foto {
+    background: var(--tarjeta);
+    border-radius: 14px;
+    padding: 10px;
+}
+
+.foto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.foto p {
+    font-weight: bold;
+    padding: 8px 3px;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filtros button {
+    color: var(--texto);
+    background: var(--tarjeta);
+    border: 1px solid var(--azul);
+}
+
+.filtros .activo {
+    color: white;
+    background: var(--azul);
+}
+
+.frase {
+    background: var(--oscuro);
+    color: white;
+    text-align: center;
+    padding: 70px 8%;
+}
+
+.frase h2 {
+    max-width: 850px;
+    margin: 20px auto;
+    font-size: clamp(25px, 5vw, 42px);
+}
+
+.quiz {
+    max-width: 750px;
+    margin: 30px auto 0;
+    padding: 28px;
+    background: var(--tarjeta);
+    border-radius: 16px;
+}
+
+.pregunta {
+    margin-bottom: 25px;
+}
+
+.pregunta h3 {
+    margin-bottom: 12px;
+}
+
+.pregunta label {
+    display: block;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #bfd8e8;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.pregunta label:hover {
+    background: #e1f5ff;
+}
+
+.boton-azul {
+    background: var(--azul);
+    color: white;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#visor {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #000e;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#visor img {
+    max-width: 95%;
+    max-height: 85vh;
+    border-radius: 12px;
+}
+
+#cerrar {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 40px;
+    background: transparent;
+    color: white;
+}
+
+body.oscuro {
+    --fondo: #0c1723;
+    --texto: #edf5ff;
+    --tarjeta: #19293a;
+    --azul: #78ceff;
+}
+
+body.oscuro .fondo-azul {
+    background: #14283a;
+}
+
+body.oscuro .anio {
+    background: #263f52;
+    color: #b9eaff;
+}
+
+body.oscuro .pregunta label {
+    border-color: #42596b;
+}
+
+body.oscuro .pregunta label:hover {
+    background: #263d50;
+}
+
+@media (max-width: 800px) {
+    .columnas {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 50px 5%;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .quiz {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <div class="logo">MESSI<span>.10</span></div>
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#clubes">Clubes</a></li>
+        <li><a href="#argentina">Argentina</a></li>
+        <li><a href="#titulos">Títulos</a></li>
+        <li><a href="#familia">Familia</a></li>
+    </ul>
+    <button id="modo" type="button" aria-label="Cambiar tema">🌙</button>
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+    <div class="hero-contenido">
+        <span class="etiqueta">ARGENTINA · EL NÚMERO 10</span>
+        <h1>LIONEL <span>MESSI</span></h1>
+        <p>
+            Una historia de pasión, talento y perseverancia.
+            Descubrí la vida, los clubes, los títulos y los logros
+            de una de las grandes leyendas del fútbol mundial.
+        </p>
+        <a class="boton" href="#historia">DESCUBRIR SU HISTORIA ↓</a>
+    </div>
+</section>
+
+<section id="historia">
+<div class="contenedor">
+    <h2 class="titulo">Su historia</h2>
+    <p class="subtitulo">
+        De Rosario al mundo: el camino de un chico que convirtió
+        su pasión por el fútbol en una carrera extraordinaria.
+    </p>
+
+    <div class="columnas">
+        <img class="foto-principal" src="imagenes/messi-argentina.jpg" alt="Lionel Messi con Argentina">
+
+        <div class="texto">
+            <h3>Infancia en Rosario</h3>
+            <p>Lionel Andrés Messi nació el 24 de junio de 1987 en Rosario, Santa Fe, Argentina. Desde pequeño mostró una gran habilidad con la pelota y comenzó a jugar al fútbol siendo niño.</p>
+
+            <h3>Sus primeros pasos</h3>
+            <p>Jugó en Abanderado Grandoli y luego se incorporó a las divisiones infantiles de Newell's Old Boys. Su talento empezó a destacarse desde muy temprana edad.</p>
+
+            <h3>El salto a Europa</h3>
+            <p>A los 13 años se trasladó a España para continuar su formación en el FC Barcelona. Allí progresó por las categorías juveniles hasta debutar en el primer equipo en 2004.</p>
+
+            <h3>Una carrera histórica</h3>
+            <p>Con el paso de los años se destacó por su capacidad goleadora, su visión de juego, sus asistencias y su habilidad para superar rivales. También alcanzó grandes éxitos con Argentina.</p>
+        </div>
+    </div>
+
+    <div class="estadisticas">
+        <div class="estadistica"><strong>1987</strong><span>Año de nacimiento</span></div>
+        <div class="estadistica"><strong>Rosario</strong><span>Ciudad natal</span></div>
+        <div class="estadistica"><strong>10</strong><span>Número emblemático</span></div>
+        <div class="estadistica"><strong>Zurdo</strong><span>Pie dominante</span></div>
+    </div>
+</div>
+</section>
+
+<section class="fondo-azul" id="clubes">
+<div class="contenedor">
+    <h2 class="titulo">Los clubes de Messi</h2>
+    <p class="subtitulo">Cada equipo fue una etapa diferente de su trayectoria.</p>
+
+    <div class="tarjetas">
+        <article class="tarjeta">
+            <div class="icono">🔴⚫</div>
+            <span class="anio">Infancia</span>
+            <h3>Newell's Old Boys</h3>
+            <p>En Rosario jugó en las divisiones infantiles y desarrolló las habilidades que marcarían su futuro en el fútbol.</p>
+        </article>
+
+        <article class="tarjeta">
+            <div class="icono">🔵🔴</div>
+            <span class="anio">2004–2021</span>
+            <h3>FC Barcelona</h3>
+            <p>Fue la etapa más larga de su carrera profesional. Ganó cuatro Champions League y diez ligas españolas, entre muchos otros títulos.</p>
+        </article>
+
+        <article class="tarjeta">
+            <div class="icono">🔵🔴</div>
+            <span class="anio">2021–2023</span>
+            <h3>Paris Saint-Germain</h3>
+            <p>Jugó en Francia, conquistó dos títulos de Ligue 1 y continuó compitiendo al máximo nivel europeo.</p>
+        </article>
+
+        <article class="tarjeta">
+            <div class="icono">🩷🖤</div>
+            <span class="anio">Desde 2023</span>
+            <h3>Inter Miami</h3>
+            <p>Llegó al fútbol estadounidense y ayudó al club a ganar títulos como la Leagues Cup de 2023 y el Supporters' Shield de 2024.</p>
+        </article>
+    </div>
+</div>
+</section>
+
+<section id="argentina">
+<div class="contenedor">
+    <h2 class="titulo">La Selección Argentina 🇦🇷</h2>
+    <p class="subtitulo">Su camino con la camiseta celeste y blanca, desde las juveniles hasta la consagración en el Mundial.</p>
+
+    <div class="columnas">
+        <img class="foto-principal" src="imagenes/messi-copa-mundo.jpg" alt="Fútbol y la Selección Argentina">
+
+        <div class="texto">
+            <h3>Los primeros títulos</h3>
+            <p>En 2005 fue campeón del Mundial Sub-20 y recibió el reconocimiento como uno de los jugadores destacados. En 2008 obtuvo la medalla de oro olímpica en Beijing.</p>
+
+            <h3>Copa América 2021</h3>
+            <p>Argentina derrotó a Brasil en la final disputada en el estadio Maracaná y Messi ganó su primer gran título con la Selección mayor.</p>
+
+            <h3>Finalissima 2022</h3>
+            <p>Argentina venció a Italia en Wembley y sumó otro título internacional a su palmarés.</p>
+
+            <h3>La gloria mundial en 2022</h3>
+            <p>En Qatar, Argentina venció a Francia por penales en una final inolvidable. Messi marcó dos goles en el partido y recibió el Balón de Oro del torneo.</p>
+
+            <h3>Otra Copa América en 2024</h3>
+            <p>La Selección volvió a ser campeona continental en Estados Unidos, al derrotar a Colombia en la final.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="fondo-azul" id="cronologia">
+<div class="contenedor">
+    <h2 class="titulo">Momentos inolvidables</h2>
+    <p class="subtitulo">Una línea de tiempo con acontecimientos importantes de su carrera.</p>
+
+    <div class="timeline">
+        <article class="evento"><span class="anio">1987</span><h3>Nace en Rosario</h3><p>Comienza la historia del futbolista argentino que llegaría a la cima del deporte mundial.</p></article>
+        <article class="evento"><span class="anio">2004</span><h3>Debut con el Barcelona</h3><p>Debuta oficialmente con el primer equipo del club español.</p></article>
+        <article class="evento"><span class="anio">2005</span><h3>Campeón mundial Sub-20</h3><p>Gana el Mundial juvenil con Argentina y se destaca en el torneo.</p></article>
+        <article class="evento"><span class="anio">2009–2012</span><h3>Cuatro Balones de Oro consecutivos</h3><p>Recibe el premio en 2009, 2010, 2011 y 2012.</p></article>
+        <article class="evento"><span class="anio">2014</span><h3>Final del Mundial</h3><p>Argentina llega a la final de Brasil y Messi gana el Balón de Oro del torneo.</p></article>
+        <article class="evento"><span class="anio">2021</span><h3>Campeón de América</h3><p>Argentina gana la Copa América en Brasil.</p></article>
+        <article class="evento"><span class="anio">2022</span><h3>Campeón del mundo</h3><p>Argentina conquista el Mundial de Qatar tras vencer a Francia en la final.</p></article>
+        <article class="evento"><span class="anio">2023</span><h3>Llega a Inter Miami</h3><p>Comienza una nueva etapa en el fútbol de Estados Unidos.</p></article>
+        <article class="evento"><span class="anio">2024</span><h3>Campeón de América</h3><p>Argentina conquista la Copa América por segunda vez con Messi en el equipo campeón.</p></article>
+    </div>
+</div>
+</section>
+
+<section id="titulos">
+<div class="contenedor">
+    <h2 class="titulo">Sus títulos más importantes</h2>
+    <p class="subtitulo">Una selección de los trofeos colectivos obtenidos durante su carrera.</p>
+
+    <div class="tarjetas">
+        <article class="tarjeta">
+            <div class="icono">🌍</div>
+            <h3>FC Barcelona</h3>
+            <ul>
+                <li>4 Champions League</li>
+                <li>10 Ligas españolas</li>
+                <li>7 Copas del Rey</li>
+                <li>8 Supercopas de España</li>
+                <li>3 Mundiales de Clubes</li>
+                <li>3 Supercopas de Europa</li>
+            </ul>
+        </article>
+
+        <article class="tarjeta">
+            <div class="icono">🇫🇷</div>
+            <h3>Paris Saint-Germain</h3>
+            <ul>
+                <li>2 títulos de Ligue 1</li>
+                <li>1 Trophée des Champions</li>
+            </ul>
+        </article>
+
+        <article class="tarjeta">
+            <div class="icono">🇺🇸</div>
+            <h3>Inter Miami</h3>
+            <ul>
+                <li>Leagues Cup 2023</li>
+                <li>Supporters' Shield 2024</li>
+                <li>MLS Cup 2025</li>
+            </ul>
+        </article>
+
+        <article class="tarjeta">
+            <div class="icono">🇦🇷</div>
+            <h3>Selección Argentina</h3>
+            <ul>
+                <li>Mundial 2022</li>
+                <li>Copa América 2021 y 2024</li>
+                <li>Finalissima 2022</li>
+                <li>Mundial Sub-20 de 2005</li>
+                <li>Oro olímpico de 2008</li>
+            </ul>
+        </article>
+    </div>
+</div>
+</section>
+
+<section class="fondo-azul" id="logros">
+<div class="contenedor">
+    <h2 class="titulo">Premios y logros individuales</h2>
+    <p class="subtitulo">Sus distinciones personales reflejan su regularidad, talento y rendimiento durante distintas etapas de su carrera.</p>
+
+    <div class="tarjetas">
+        <article class="tarjeta"><div class="icono">🥇</div><h3>8 Balones de Oro</h3><p>Los ganó en 2009, 2010, 2011, 2012, 2015, 2019, 2021 y 2023.</p></article>
+        <article class="tarjeta"><div class="icono">🌟</div><h3>Premio The Best</h3><p>Fue elegido mejor jugador masculino de la FIFA en 2019, 2022 y 2023.</p></article>
+        <article class="tarjeta"><div class="icono">⚽</div><h3>Bota de Oro</h3><p>Ganó seis veces el premio al máximo goleador de las ligas europeas.</p></article>
+        <article class="tarjeta"><div class="icono">🏆</div><h3>Balón de Oro del Mundial</h3><p>Recibió el reconocimiento al mejor jugador de los Mundiales de 2014 y 2022.</p></article>
+        <article class="tarjeta"><div class="icono">🎯</div><h3>Goleador histórico</h3><p>Es el máximo goleador histórico del Barcelona y de la Selección Argentina masculina.</p></article>
+        <article class="tarjeta"><div class="icono">📈</div><h3>Su estilo de juego</h3><p>Es reconocido por sus goles, asistencias, regates, visión de juego y precisión.</p></article>
+    </div>
+</div>
+</section>
+
+<section id="familia">
+<div class="contenedor">
+    <h2 class="titulo">Su familia</h2>
+    <p class="subtitulo">Un aspecto importante de su vida fuera de las canchas.</p>
+
+    <div class="tarjetas">
+        <article class="tarjeta"><div class="icono">👨‍👩‍👦</div><h3>Sus padres</h3><p>Jorge Messi y Celia Cuccittini acompañaron sus primeros años y su desarrollo personal y futbolístico.</p></article>
+        <article class="tarjeta"><div class="icono">❤️</div><h3>Antonela Roccuzzo</h3><p>Es su esposa. Se conocen desde su infancia en Rosario y se casaron en 2017.</p></article>
+        <article class="tarjeta"><div class="icono">👦</div><h3>Thiago Messi</h3><p>Es el hijo mayor de Lionel Messi y Antonela Roccuzzo.</p></article>
+        <article class="tarjeta"><div class="icono">👦</div><h3>Mateo Messi</h3><p>Es el segundo hijo de la pareja.</p></article>
+        <article class="tarjeta"><div class="icono">👶</div><h3>Ciro Messi</h3><p>Es el hijo menor de Lionel y Antonela.</p></article>
+    </div>
+</div>
+</section>
+
+
+<section class="frase">
+    <span class="etiqueta">UN LEGADO INOLVIDABLE</span>
+    <h2>Del sueño de un chico de Rosario a la gloria del fútbol mundial.</h2>
+    <p>Talento, esfuerzo y pasión por la camiseta argentina. 🇦🇷</p>
+</section>
+
+<section id="quiz">
+<div class="contenedor">
+    <h2 class="titulo">¿Cuánto sabés de Messi?</h2>
+    <p class="subtitulo">Contestá las preguntas y comprobá tus conocimientos.</p>
+
+    <div class="quiz">
+        <form id="formQuiz">
+            <div class="pregunta">
+                <h3>1. ¿En qué ciudad nació Messi?</h3>
+                <label><input type="radio" name="p1" value="0"> Buenos Aires</label>
+                <label><input type="radio" name="p1" value="1"> Rosario</label>
+                <label><input type="radio" name="p1" value="0"> Córdoba</label>
+            </div>
+
+            <div class="pregunta">
+                <h3>2. ¿En qué club desarrolló gran parte de su carrera?</h3>
+                <label><input type="radio" name="p2" value="1"> FC Barcelona</label>
+                <label><input type="radio" name="p2" value="0"> Boca Juniors</label>
+                <label><input type="radio" name="p2" value="0"> Manchester City</label>
+            </div>
+
+            <div class="pregunta">
+                <h3>3. ¿En qué año ganó el Mundial con Argentina?</h3>
+                <label><input type="radio" name="p3" value="0"> 2014</label>
+                <label><input type="radio" name="p3" value="1"> 2022</label>
+                <label><input type="radio" name="p3" value="0"> 2018</label>
+            </div>
+
+            <div class="pregunta">
+                <h3>4. ¿Cuántos Balones de Oro había ganado hasta 2023?</h3>
+                <label><input type="radio" name="p4" value="0"> 5</label>
+                <label><input type="radio" name="p4" value="1"> 8</label>
+                <label><input type="radio" name="p4" value="0"> 10</label>
+            </div>
+
+            <button class="boton-azul" type="submit">Corregir respuestas</button>
+        </form>
+
+        <p id="resultado"></p>
+    </div>
+</div>
+</section>
+
+<div id="visor" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button id="cerrar" type="button" aria-label="Cerrar imagen">&times;</button>
+    <img src="" alt="Imagen ampliada">
+</div>
+
+<script>
+const botonModo = document.getElementById("modo");
+
+if (botonModo) {
+    botonModo.addEventListener("click", function () {
+        document.body.classList.toggle("oscuro");
+        const oscuro = document.body.classList.contains("oscuro");
+        botonModo.textContent = oscuro ? "☀️" : "🌙";
+    });
+}
+
+
+// AMPLIAR Y CERRAR FOTOS
+const visor = document.getElementById("visor");
+const imagenVisor = visor ? visor.querySelector("img") : null;
+const botonCerrar = document.getElementById("cerrar");
+
+function cerrarVisor() {
+    if (visor && imagenVisor) {
+        visor.style.display = "none";
+        imagenVisor.src = "";
+    }
+}
+
+document.querySelectorAll(".foto img").forEach(function (imagen) {
+    imagen.addEventListener("click", function () {
+        if (visor && imagenVisor) {
+            imagenVisor.src = imagen.src;
+            imagenVisor.alt = imagen.alt;
+            visor.style.display = "flex";
+        }
+    });
+});
+
+if (botonCerrar) {
+    botonCerrar.addEventListener("click", cerrarVisor);
+}
+
+if (visor) {
+    visor.addEventListener("click", function (evento) {
+        if (evento.target === visor) {
+            cerrarVisor();
+        }
+    });
+}
+
+document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape") {
+        cerrarVisor();
+    }
+});
+
+// CUESTIONARIO
+const formulario = document.getElementById("formQuiz");
+const resultado = document.getElementById("resultado");
+
+if (formulario && resultado) {
+    formulario.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+
+        const preguntas = ["p1", "p2", "p3", "p4"];
+        let puntos = 0;
+        let respondidas = 0;
+
+        preguntas.forEach(function (nombre) {
+            const respuesta = formulario.querySelector(
+                'input[name="' + nombre + '"]:checked'
+            );
+
+            if (respuesta) {
+                respondidas++;
+
+                if (respuesta.value === "1") {
+                    puntos++;
+                }
+            }
+        });
+
+        if (respondidas < preguntas.length) {
+            resultado.textContent = "Respondé las cuatro preguntas antes de corregir.";
+        } else if (puntos === 4) {
+            resultado.textContent = "¡Excelente! Conocés muy bien la historia de Messi. 🏆";
+        } else if (puntos >= 2) {
+            resultado.textContent = "¡Muy bien! Acertaste " + puntos + " de 4 preguntas. ⚽";
+        } else {
+            resultado.textContent = "Acertaste " + puntos + " de 4. Repasá la página e intentá de nuevo. 🇦🇷";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
